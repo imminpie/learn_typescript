@@ -57,4 +57,33 @@
   const maker = CoffeeMaker.makeMachine(32);
   // 커피 원두를 추가로 보충하는 메서드 호출
   maker.fillCoffeeBeans(32);
+
+  ///////////////////////////////////////////////////////
+
+  // Getter 와 Setter 를 위한 예제
+  class User {
+    get fullName(): string {
+      return `${this.firstName} ${this.lastName}`;
+    }
+
+    private internalAge = 4;
+    get age(): number {
+      return this.internalAge;
+    }
+    set age(num: number) {
+      this.internalAge = num;
+    }
+
+    constructor(private firstName: string, private lastName: string) {}
+  }
+
+  const user = new User('Steve', 'Jobs');
+
+  // Getter
+  console.log(user.fullName); // Steve Jobs
+
+  // setter
+  user.age = 8;
+  // Getter
+  console.log(user.age); // 8
 }
