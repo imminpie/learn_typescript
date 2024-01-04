@@ -38,4 +38,20 @@
 
   const steveAfterPay = pay(steve);
   const bobAfterPay = pay(bob);
+
+  ///////////////////////////////////////////////////////
+
+  const obj = {
+    name: 'steve',
+    age: 20,
+  };
+
+  // K extends keyof T
+  // T 에 있는 key 만 사용할 수 있도록 제약
+  function getValue<T, K extends keyof T>(obj: T, key: K): T[K] {
+    return obj[key];
+  }
+
+  console.log(getValue(obj, 'name')); // steve
+  console.log(getValue(obj, 'age')); // 20
 }
